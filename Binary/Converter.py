@@ -16,3 +16,26 @@ def Ascii_to_Binary(text,separate_by=None):
         if separate_by != None:
             result += separate_by
     return result
+
+
+def Binary_to_Ascii(data,separate_by=None):
+   
+	
+    result = ""
+    if separate_by != None :
+        for octed in data.split(separate_by):
+            decimal=int(octed,2)
+            char = chr(decimal)
+            result = result + char
+    else :
+        BitData =[]
+        while data:
+            BitData.append(data[:8])
+            data = data[8:]
+
+        for octed in BitData:
+            decimal=int(octed,2)
+            char = chr(decimal)
+            result = result + char
+            
+    return result
